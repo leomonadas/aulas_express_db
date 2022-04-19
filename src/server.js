@@ -1,9 +1,17 @@
 const express = require('express');
-const routes = require("./routes"); //Importa as rotas
+//Importa as rotas
+const routes = require("./routes"); 
+
+const db = require("./database");
+
 const app = express();
 
-app.use(express.json()); //É importante essa estrutura estar antes das rotas, pois é necessário ativar a estrutura de JSON 
+db.hasConection();
 
-app.use(routes); //Utiliza as rotas que foram definidas em ./routes!
+//É importante essa estrutura estar antes das rotas, pois é necessário ativar a estrutura de JSON 
+app.use(express.json()); 
+
+//Utiliza as rotas que foram definidas em ./routes!
+app.use(routes); 
 
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'))
