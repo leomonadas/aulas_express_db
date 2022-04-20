@@ -1,9 +1,12 @@
 const express = require('express');
-const produtoController = require("../controllers/productController");
+const produtoController = require("../controllers/produtoController");
 const routes = express.Router();
 
 routes.get("/produto/lista", produtoController.listarProduto);
-routes.post("/produto", produtoController.cadastrarProduto);
+routes.post("/produto/cadastro", produtoController.cadastrarProduto);
+routes.delete("/produto/:codigo/deletar", produtoController.deletarProduto);
+routes.put("/produto/:codigo/atualizar", produtoController.atualizarProduto);
+
 
 // routes.get('/', (req, res) => {
 //     res.send('Olá mundo!')
@@ -15,7 +18,9 @@ routes.post("/produto", produtoController.cadastrarProduto);
 //     res.json(req.body)
 // })
 
-module.exports = routes; //Para exportar as rotas
+
+//Para exportar as rotas
+module.exports = routes; 
 
 
 

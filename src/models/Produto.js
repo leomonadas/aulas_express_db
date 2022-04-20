@@ -1,7 +1,7 @@
 const db = require('../database');
 const { DataTypes } = require('sequelize');
 
-const Products = db.define("Products", {
+const Produto = db.define("Produto", {
     //Cada objeto é uma coluna
     codigo: {
         type: DataTypes.INTEGER,
@@ -22,14 +22,21 @@ const Products = db.define("Products", {
     },
     link_foto: {
         type: DataTypes.STRING,
-    },
-    createdAt: {
-        type: DataTypes.DATE,
-    },
-    updatedAt: {
-        type: DataTypes.DATE,
-    },
+    }
+    // },
+    // createdAt: {
+    //     type: DataTypes.DATE,
+    // },
+    // updatedAt: {
+    //     type: DataTypes.DATE,
+    // },
 }, {
+    //Sequelize pluraliza o nome da tabela, para isso não acontecer, usa-se o código abaixo
+    freezeTableName: true,
+    //Para não chamar as colunas createdAt e updatedAt
+    timestamps: false,
     //Aqui é onde se insere o nome da tabela no Banco de Dados
-    tablename: "productinfo",
+    tablename: "produto",
 });
+
+module.exports = Produto;
