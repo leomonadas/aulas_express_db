@@ -17,6 +17,7 @@ const ItemPedido = db.define("ItemPedido", {
             key: 'numero'
         }
     },
+    
     produto_codigo: {
         type: DataTypes.INTEGER,
         references:{

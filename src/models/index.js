@@ -11,21 +11,20 @@ PedidoInfo.belongsTo(Usuario, {
     foreignKey: "userInfo_idUser",
 });
 
+// ItemPedido.hasMany(Produto, {
+//     foreignKey: "produto_codigo",
+// });
 
-ItemPedido.hasMany(Produto, {
+Produto.hasMany(ItemPedido, {
     foreignKey: "produto_codigo",
 });
 
-Produto.belongsTo(ItemPedido, {
-    foreignKey: "produto_codigo",
-});
+// ItemPedido.hasMany(PedidoInfo, {
+//     foreignKey: "pedidoInfo_numero",
+// });
 
-ItemPedido.hasMany(PedidoInfo, {
-    foreignKey: "",
-});
-
-PedidoInfo.belongsTo(ItemPedido, {
-    foreignKey:"produto_codigo",
+PedidoInfo.hasMany(ItemPedido, {
+    foreignKey:"pedidoInfo_numero",
 });
 
 module.exports = {
