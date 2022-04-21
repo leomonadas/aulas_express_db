@@ -15,16 +15,18 @@ PedidoInfo.belongsTo(Usuario, {
 //     foreignKey: "produto_codigo",
 // });
 
-Produto.hasMany(ItemPedido, {
-    foreignKey: "produto_codigo",
-});
-
-// ItemPedido.hasMany(PedidoInfo, {
-//     foreignKey: "pedidoInfo_numero",
+// Produto.hasMany(ItemPedido, {
+//     foreignKey: "produto_codigo",
 // });
 
-PedidoInfo.hasMany(ItemPedido, {
-    foreignKey:"pedidoInfo_numero",
+Produto.belongsToMany(PedidoInfo, {
+    foreignKey: "produto_codigo",
+    through: ItemPedido,
+});
+
+PedidoInfo.belongsToMany(Produto, {
+    foreignKey: "pedidoInfo_numero",
+    through: ItemPedido,
 });
 
 module.exports = {
