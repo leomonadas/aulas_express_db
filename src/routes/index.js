@@ -1,6 +1,7 @@
 const express = require('express');
 const produtoController = require("../controllers/produtoController");
 const usuariosController = require("../controllers/usuariosController");
+const usuarioCreateValidation = require("../validations/usuarios/create");
 const routes = express.Router();
 
 routes.get("/produtos", produtoController.listarProduto);
@@ -8,7 +9,7 @@ routes.post("/produtos", produtoController.cadastrarProduto);
 routes.delete("/produtos/:codigo", produtoController.deletarProduto);
 routes.put("/produtos/:codigo", produtoController.atualizarProduto);
 
-routes.post("/usuarios", usuariosController.registro);
+routes.post("/usuarios", usuarioCreateValidation, usuariosController.registro);
 
 
 // routes.get('/', (req, res) => {
