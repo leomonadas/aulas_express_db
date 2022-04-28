@@ -1,14 +1,8 @@
 # Aulas Express 
 
 🚀 Aprendizados de Express, Sequelize e MySQL! 🚀
-
-# 📕 Índice
-
-- [📋    Tecnologias](#Tecnologias)
-- [📋    Status](#Status)
-- [📋    Autor](#Autor)
-- [👨🏽‍🔧    Entre em contato](#Contato)
-
+<br />
+Criou-se um Banco de Dados no MySQL e foi feita a integração dele com o front-end por meio do Sequelize. Tudo foi feito por meio do Express.
 
 <hr>
 
@@ -19,7 +13,11 @@
 [![EXPRESS](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/pt-br/)
 
 ## Status do projeto 🚀
-Em desenvolvimento.
+Finalizado.
+
+## MER
+Diagrama entidade relacionamento feito no MySQL. 
+![MER](./database_MER.jpeg)
 
 ## Autor
 
