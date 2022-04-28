@@ -2,6 +2,8 @@ const express = require('express');
 //Importa as rotas
 const routes = require("./routes"); 
 
+const handleError = require("./middlewares/handleError");
+
 const db = require("./database");
 
 const app = express();
@@ -13,5 +15,7 @@ app.use(express.json());
 
 //Utiliza as rotas que foram definidas em ./routes!
 app.use(routes); 
+
+app.use(handleError);
 
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'))

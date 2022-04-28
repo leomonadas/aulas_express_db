@@ -1,8 +1,8 @@
 const db = require('../database');
 const { DataTypes } = require('sequelize');
 
-const Usuario = db.define("Usuario", {
-    id: {
+const Usuario = db.define("userInfo", {
+    idUser: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -15,6 +15,9 @@ const Usuario = db.define("Usuario", {
     },
     phone: {
         type:DataTypes.INTEGER,
+    },
+    senha: {
+        type:DataTypes.STRING,
     },
 }, {
     //Sequelize pluraliza o nome da tabela, para isso não acontecer, usa-se o código abaixo

@@ -25,19 +25,23 @@ const produtoController = {
             link_foto,
         });
 
-        res.json(novoProduto);
+        res.status(201).json(novoProduto);
     },
 
 //Deletar produto
     async deletarProduto(req, res) {
-        const { codigo } = req.params;
+        try {
+            const { codigo } = req.params;
 
-        await Produto.destroy({
-            where: {
-                codigo,
-            }
-        });
-        res.json("Produto deletado!")
+            await Produto.destroy({
+                where: {
+                    codigo,
+                }
+            });
+            res.status(204);
+    } catch (error) {
+        return res.status(500).json("Ocorreu algum problema.")
+    }
     },
 
     async atualizarProduto(req, res) {
@@ -49,6 +53,8 @@ const produtoController = {
             estoque,
             link_foto,
         } = req.body;
+//Caso o codigo não seja enviado, vai dar mensagem de erro!
+        if (!codigo) res.status(400).json("Código não enviado!");
 
         const produtoAtualizado = await Produto.update({
             nome,

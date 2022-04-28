@@ -1,11 +1,14 @@
 const express = require('express');
 const produtoController = require("../controllers/produtoController");
+const usuariosController = require("../controllers/usuariosController");
 const routes = express.Router();
 
-routes.get("/produto/lista", produtoController.listarProduto);
-routes.post("/produto/cadastro", produtoController.cadastrarProduto);
-routes.delete("/produto/:codigo/deletar", produtoController.deletarProduto);
-routes.put("/produto/:codigo/atualizar", produtoController.atualizarProduto);
+routes.get("/produtos", produtoController.listarProduto);
+routes.post("/produtos", produtoController.cadastrarProduto);
+routes.delete("/produtos/:codigo", produtoController.deletarProduto);
+routes.put("/produtos/:codigo", produtoController.atualizarProduto);
+
+routes.post("/usuarios", usuariosController.registro);
 
 
 // routes.get('/', (req, res) => {
